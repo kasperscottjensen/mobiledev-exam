@@ -1,10 +1,11 @@
 import { createStackNavigator } from '@react-navigation/stack'
 
-import Home from '../screens/Home'
-import Browse from '../screens/Browse'
-import Details from '../screens/Details'
-import Add from '../screens/Add'
-import About from '../screens/About'
+import { Home } from '../screens/Home'
+import { Browse } from '../screens/Browse'
+import { Details } from '../screens/Details'
+import { Random } from '../screens/Random'
+import { Add } from '../screens/Add'
+import { About } from '../screens/About'
 
 const snav = createStackNavigator()
 
@@ -20,7 +21,7 @@ const StackHome = () => {
             />
             <snav.Screen
                 name='stackDetails'
-                component={Details}
+                component={Random}
                 options={{
                     headerShown: false
                 }}
