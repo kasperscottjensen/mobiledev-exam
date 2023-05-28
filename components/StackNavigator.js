@@ -20,7 +20,7 @@ const StackHome = () => {
                 }}
             />
             <snav.Screen
-                name='stackDetails'
+                name='stackRandom'
                 component={Random}
                 options={{
                     headerShown: false

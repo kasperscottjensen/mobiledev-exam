@@ -147,7 +147,95 @@ const styles = StyleSheet.create({
         height: '100%',
         width: '100%',
         resizeMode: 'contain'
+    },
+    browseRandomWrapper: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    browseOwnWrapper: {
+        flex: 0.6,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    listItemImage: {
+        height: 60,
+        width: 60,
+        resizeMode: 'contain',
+        margin: 10
+    },
+    listItem: {
+        width: '100%',
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        marginVertical: .5,
+        backgroundColor: '#ffffff'
+    },
+    flatList: {
+        flex: 1,
+        width: '100%',
+        backgroundColor: '#999999'
+    },
+    listItemText: {
+        color: '#999999',
+        fontSize: 20,
+        fontWeight: 'bold'
+    },
+    browseHeader: {
+        backgroundColor: '#ff6347',
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    browseHeaderText: {
+        color: '#ffffff',
+        fontWeight: 'bold',
+        fontSize: 23,
+        padding: 5
+    },
+    detailImageWrapper: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    detailImage: {
+        height: '90%',
+        width: '90%',
+        resizeMode: 'contain'
+    },
+    detailTextWrapper: {
+        flex: 1.4,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    detailWrapper: {
+        flex: 1
+    },
+    detailTitle: {
+        color: '#ff6347',
+        fontSize: 30,
+        fontWeight: 'bold'
+    },
+    detailBody: {
+        lineHeight: 22,
+        fontSize: 15,
+        paddingVertical: 15,
+        textAlign: 'center'
+    },
+    detailGuide: {
+        color: '#0000FF',
+        paddingVertical: 20,
+        textAlign: 'center'
+    },
+    detailRegion: {
+        color: '#333333',
+        fontWeight: 'bold',
+        fontSize: 20,
+        paddingVertical: 10
     }
+
 })
 
 export { styles }

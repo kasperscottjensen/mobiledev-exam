@@ -1,10 +1,12 @@
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { TextInput, View, TouchableOpacity, Text, Keyboard, Image } from 'react-native'
+import { TextInput, View, TouchableOpacity, Text, Keyboard, Image, Alert } from 'react-native'
 import { useState } from 'react'
 import * as ImagePicker from 'expo-image-picker'
 
 import { TouchableIcon } from '../components/TouchableIcon'
 import { styles } from '../style/Style'
+import { firebase } from '../util/firebase.config'
+
 
 const Add = () => {
 
@@ -15,7 +17,13 @@ const Add = () => {
 
     const handleSavePress = () => {
         Keyboard.dismiss()
-        console.log({ title, body, guide, imageUri })
+        if (!title || !body || !guide || !imageUri) {
+			return Alert.alert(
+				'Missing information!',
+				'Please fill out all the fields before saving.'
+			)
+		}
+        handleUpload()
     }
 
     const handleCancelPress = () => {
@@ -42,6 +50,47 @@ const Add = () => {
 		setImageUri({ uri: result.uri })
     }
 
+    const handleImageCancel = () => {
+        if (!imageUri) {
+            return Alert.alert(
+                'No image selected.',
+                'Please select an image from your gallery or capture one with your camera.'
+            )
+        }
+        setImageUri()
+    }
+
+    const handleUpload = async () => {
+        const filepath = imageUri.uri
+		const response = await fetch(filepath)
+		const blob = await response.blob()
+		const filename = filepath.substring(filepath.lastIndexOf('/') + 1)
+		const storageRef = firebase.storage()
+			.ref()
+			.child(filename)
+		storageRef.put(blob)
+			.then(async (snapshot) => {
+				const imageUrl = await snapshot.ref.getDownloadURL()
+				firebase.firestore()
+					.collection('recipes')
+					.add({
+                        imageUrl: imageUrl,
+                        filename: filename,
+                        title: title,
+                        body: body,
+                        guide: guide
+                    })
+			})
+			.catch((error) => {
+				console.log(error)
+			})
+		Alert.alert(
+			'Success!',
+			'Your recipe has been successfully uploaded.'
+		)
+		handleCancelPress()
+    }
+
     return (
 
         <SafeAreaView style={styles.container}>
@@ -58,9 +107,18 @@ const Add = () => {
                     text={'Capture'}
                     onPress={() => handleImageCapture()}
                 />
+                <TouchableIcon
+                    name={'close-circle'}
+                    size={30}
+                    text={'Delete'}
+                    onPress={() => handleImageCancel()}
+                />
             </View>
             <View style={styles.addImageWrapper}>
-                {imageUri && <Image source={{ uri: imageUri.uri }} style={styles.addImage}/>}
+                <Image
+                    source={imageUri ? { uri: imageUri.uri } : require('../assets/imageicon.png')}
+                    style={styles.addImage}
+                />
             </View>        
             <View style={styles.addTextWrapper}>
                 <TextInput
@@ -86,15 +144,15 @@ const Add = () => {
             <View style={styles.addButtonWrapper}>
                 <TouchableOpacity
                     style={styles.addButton}
-                    onPress={() => {handleSavePress()}}
+                    onPress={() => handleSavePress()}
                 >
                     <Text style={styles.addButtonText}>Save</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.addCancelButton}
-                    onPress={() => {handleCancelPress()}}
+                    onPress={() => handleCancelPress()}
                 >
-                    <Text style={styles.addButtonText}>Cancel</Text>
+                    <Text style={styles.addButtonText}>Reset</Text>
                 </TouchableOpacity>
             </View>
         </SafeAreaView>

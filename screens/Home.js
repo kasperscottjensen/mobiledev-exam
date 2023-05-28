@@ -1,15 +1,13 @@
 import { View, Text } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { useNavigation } from '@react-navigation/native'
 
 import { styles } from '../style/Style'
-
 import { TouchableCard } from '../components/TouchableCard'
 
 const Home = () => {
 
-    const handleCardPress = (region) => {
-        console.log(region)
-    }
+    const nav = useNavigation()
 
     return (
 
@@ -17,17 +15,17 @@ const Home = () => {
             <TouchableCard
                 imageSource={require('../assets/southasia.png')}
                 cardText={'South Asia'}
-                onPress={() => handleCardPress('South Asia')}
+                onPress={() => nav.navigate('stackRandom', { region : 'South Asia' } )}
             />
             <TouchableCard
                 imageSource={require('../assets/eastasia.png')}
                 cardText={'East Asia'}
-                onPress={() => handleCardPress('East Asia')}
+                onPress={() => nav.navigate('stackRandom', { region : 'East Asia' } )}
             />
             <TouchableCard
                 imageSource={require('../assets/greece.jpeg')}
                 cardText={'Greece'}
-                onPress={() => handleCardPress('Greece')}
+                onPress={() => nav.navigate('stackRandom', { region : 'Greece' } )}
             />
 
             <View style={styles.horizontalCardCenter}>
@@ -37,17 +35,17 @@ const Home = () => {
             <TouchableCard
                 imageSource={require('../assets/italy.png')}
                 cardText={'Italy'}
-                onPress={() => handleCardPress('Italy')}
+                onPress={() => nav.navigate('stackRandom', { region : 'Italy' } )}
             />
             <TouchableCard
                 imageSource={require('../assets/france.jpg')}
                 cardText={'France'}
-                onPress={() => handleCardPress('France')}
+                onPress={() => nav.navigate('stackRandom', { region : 'France' } )}
             />
             <TouchableCard
                 imageSource={require('../assets/southamerica.jpg')}
                 cardText={'South America'}
-                onPress={() => handleCardPress('South America')}
+                onPress={() => nav.navigate('stackRandom', { region : 'South America' } )}
             />
         </SafeAreaView>
 

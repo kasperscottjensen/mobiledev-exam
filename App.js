@@ -21,7 +21,7 @@ export default function App() {
 						height: 55
 					},
 					tabBarLabelStyle: {
-						color: '#999999',
+						color: '#333333',
 						fontSize: 14
 					}
 				}}
