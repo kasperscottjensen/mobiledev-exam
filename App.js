@@ -14,6 +14,7 @@ export default function App() {
 				initialRouteName='home'
 				screenOptions={{
 					headerShown: false,
+					unmountOnBlur: true,
 					tabBarStyle: {
 						backgroundColor: '#ffffff',
 						paddingTop: 5,
@@ -32,7 +33,11 @@ export default function App() {
 					options={{
 						tabBarLabel: 'Home',
 						tabBarIcon: ({focused}) => (
-							<TabBarIcon name='home-outline' size={23} focused={focused}/>
+							<TabBarIcon
+								name='home-outline'
+								size={23}
+								focused={focused}
+							/>
 						)
 					}}
 				/>
@@ -42,7 +47,11 @@ export default function App() {
 					options={{
 						tabBarLabel: 'Browse',
 						tabBarIcon: ({focused}) => (
-							<TabBarIcon name='search' size={24} focused={focused}/>
+							<TabBarIcon
+								name='search'
+								size={24}
+								focused={focused}
+							/>
 						)
 					}}
 				/>
@@ -52,7 +61,11 @@ export default function App() {
 					options={{
 						tabBarLabel: 'Add',
 						tabBarIcon: ({focused}) => (
-							<TabBarIcon name='add' size={28} focused={focused}/>
+							<TabBarIcon
+								name='add'
+								size={28}
+								focused={focused}
+							/>
 						)
 					}}
 				/>
@@ -62,7 +75,11 @@ export default function App() {
 					options={{
 						tabBarLabel: 'About',
 						tabBarIcon: ({focused}) => (
-							<TabBarIcon name='help-outline' size={24} focused={focused}/>
+							<TabBarIcon
+								name='help-outline'
+								size={24}
+								focused={focused}
+							/>
 						)
 					}}
 				/>
