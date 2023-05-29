@@ -208,7 +208,9 @@ const styles = StyleSheet.create({
     detailTextWrapper: {
         flex: 1.4,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        width: '90%',
+        alignSelf: 'center'
     },
     detailWrapper: {
         flex: 1
@@ -234,6 +236,35 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 20,
         paddingVertical: 10
+    },
+    detailsDeleteButton: {
+        backgroundColor: '#999999',
+        width: '20%',
+        paddingVertical: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginHorizontal: 2.5,
+        borderRadius: 10
+    },
+    detailsButtonText: {
+        color: '#ffffff',
+        fontSize: 15,
+        fontWeight: 'bold'
+    },
+    detailsButtonWrapper: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingVertical: 10,
+        flexDirection: 'row'
+    },
+    detailsEditButton: {
+        backgroundColor: '#ff6347',
+        width: '20%',
+        paddingVertical: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginHorizontal: 2.5,
+        borderRadius: 10
     }
 
 })

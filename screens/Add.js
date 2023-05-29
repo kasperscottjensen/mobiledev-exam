@@ -72,7 +72,7 @@ const Add = () => {
 			.then(async (snapshot) => {
 				const imageUrl = await snapshot.ref.getDownloadURL()
 				firebase.firestore()
-					.collection('recipes')
+					.collection('userRecipes')
 					.add({
                         imageUrl: imageUrl,
                         filename: filename,
@@ -138,6 +138,7 @@ const Add = () => {
                     value={body}
                     onChangeText={(text) => setBody(text)}
                     multiline={true}
+                    numberOfLines={5}
                     style={styles.bigTextInput}
                 />
             </View>
