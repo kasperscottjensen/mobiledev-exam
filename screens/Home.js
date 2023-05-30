@@ -1,7 +1,6 @@
 import { View, Text } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useNavigation } from '@react-navigation/native'
-
 import { styles } from '../style/Style'
 import { TouchableCard } from '../components/TouchableCard'
 
@@ -27,11 +26,9 @@ const Home = () => {
                 cardText={'Greece'}
                 onPress={() => nav.navigate('stackRandom', { region : 'Greece' } )}
             />
-
             <View style={styles.horizontalCardCenter}>
                 <Text style={styles.centerText}>Choose a region</Text>
             </View>
-
             <TouchableCard
                 imageSource={require('../assets/italy.png')}
                 cardText={'Italy'}

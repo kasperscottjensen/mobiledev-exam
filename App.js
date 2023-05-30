@@ -1,6 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native'
-
 import { stackBundle } from './components/StackNavigator'
 import { TabBarIcon } from './components/TabBarIcon'
 
@@ -8,7 +7,8 @@ export default function App() {
 
 	const btnav = createBottomTabNavigator()
 
-	return (		
+	return (	
+
 		<NavigationContainer>
 			<btnav.Navigator
 				initialRouteName='home'
@@ -85,5 +85,6 @@ export default function App() {
 				/>
 			</btnav.Navigator>
 		</NavigationContainer>
+		
 	)
 }

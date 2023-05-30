@@ -1,7 +1,6 @@
 import { Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import MapView, { Marker } from 'react-native-maps'
-
 import { styles } from '../style/Style'
 
 const About = () => {

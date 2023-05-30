@@ -1,5 +1,4 @@
 import { Pressable, Image, Text } from 'react-native'
-
 import { styles} from '../style/Style'
 
 const PressableListItem = ({ image, text, onPress }) => {

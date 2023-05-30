@@ -2,7 +2,6 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { useIsFocused } from '@react-navigation/native'
 import { useEffect, useState } from 'react'
 import { Alert } from 'react-native'
-
 import { styles } from '../style/Style'
 import { DetailedView } from '../components/DetailedView'
 import { firebase } from '../util/firebase.config'
@@ -24,11 +23,11 @@ const Random = ({ route }) => {
                 snapshot.forEach((doc) => {
                     result.push({...doc.data()})
                 })
-                const sortedArray = [...result].sort((a, b) => a.title.localeCompare(b.title))
-                setRecipes(sortedArray)
+                setRecipes(result)
             })
             .catch((error) => {
                 console.log(error)
+                Alert.alert('Woops!', 'Something went wrong while fetching the recipes.')
             })
     }
 

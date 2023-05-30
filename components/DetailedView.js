@@ -1,12 +1,7 @@
 import { Text, Image, View, TouchableOpacity, Linking } from 'react-native'
-
 import { styles } from '../style/Style'
 
 const DetailedView = ({ imageUrl, title, body, guide, region }) => {
-
-    const handleLinkPress = () => {
-        Linking.openURL(guide)
-    }
 
     return (
 
@@ -21,11 +16,12 @@ const DetailedView = ({ imageUrl, title, body, guide, region }) => {
                 <Text style={styles.detailTitle}>{title}</Text>
                 <Text style={styles.detailRegion}>{region}</Text>
                 <Text style={styles.detailBody}>{body}</Text>
-                <TouchableOpacity onPress={handleLinkPress}>
+                <TouchableOpacity onPress={Linking.openURL(guide)}>
                     <Text style={styles.detailGuide}>Click here to watch a full guide!</Text>
                 </TouchableOpacity>
             </View>
         </View>
+
     )
 }
 

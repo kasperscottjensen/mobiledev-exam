@@ -1,7 +1,6 @@
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { TouchableOpacity, Text, View, Alert } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-
 import { styles } from '../style/Style'
 import { DetailedView } from '../components/DetailedView'
 import { firebase } from '../util/firebase.config'
@@ -27,17 +26,12 @@ const Details = ({ route }) => {
                             doc.ref.delete()
                         })
                     })
-                    .catch((error) => {
-                        console.log(error)
-                    })
             })
             .catch((error) => {
                 console.log(error)
+                Alert.alert('Woops!', 'Something went wrong while deleting your recipe.')
             })
-        Alert.alert(
-            'Success!',
-            'Your recipe has been successfully deleted.'
-        )
+        Alert.alert('Success!', 'Your recipe has been successfully deleted.')
         nav.navigate('stackBrowse')
     }
 
@@ -53,7 +47,10 @@ const Details = ({ route }) => {
             />
             {!item.region && (
                 <View style={styles.detailsButtonWrapper}>
-                    <TouchableOpacity style={styles.detailsEditButton}>
+                    <TouchableOpacity
+                        style={styles.detailsEditButton}
+                        onPress={() => nav.navigate('stackEdit', { item })}
+                    >
                         <Text style={styles.detailsButtonText}>Edit</Text>
                     </TouchableOpacity>
                     <TouchableOpacity

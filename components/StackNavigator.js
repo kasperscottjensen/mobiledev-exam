@@ -1,16 +1,18 @@
 import { createStackNavigator } from '@react-navigation/stack'
-
 import { Home } from '../screens/Home'
 import { Browse } from '../screens/Browse'
 import { Details } from '../screens/Details'
 import { Random } from '../screens/Random'
 import { Add } from '../screens/Add'
 import { About } from '../screens/About'
+import { Edit } from '../screens/Edit'
 
 const snav = createStackNavigator()
 
 const StackHome = () => {
+
     return (
+
         <snav.Navigator>
             <snav.Screen
                 name='stackHome'
@@ -27,11 +29,14 @@ const StackHome = () => {
                 }}
             />
         </snav.Navigator>
+
     )
 }
 
 const StackBrowse = () => {
+
     return (
+    
         <snav.Navigator>
             <snav.Screen
                 name='stackBrowse'
@@ -47,12 +52,22 @@ const StackBrowse = () => {
                     headerShown: false
                 }}
             />
+            <snav.Screen
+                name='stackEdit'
+                component={Edit}
+                options={{
+                    headerShown: false
+                }}
+            />
         </snav.Navigator>
+
     )
 }
 
 const StackAdd = () => {
+
     return (
+
         <snav.Navigator>
             <snav.Screen
                 name='stackAdd'
@@ -62,11 +77,14 @@ const StackAdd = () => {
                 }}
             />
         </snav.Navigator>
+
     )
 }
 
 const StackAbout = () => {
+
     return (
+
         <snav.Navigator>
             <snav.Screen
                 name='stackAbout'
@@ -76,6 +94,7 @@ const StackAbout = () => {
                 }}
             />
         </snav.Navigator>
+        
     )
 }
 

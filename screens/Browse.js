@@ -1,8 +1,7 @@
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList, Alert } from 'react-native'
 import { useState, useEffect } from 'react'
 import { useNavigation, useIsFocused } from '@react-navigation/native'
-
 import { styles } from '../style/Style'
 import { firebase } from '../util/firebase.config'
 import { PressableListItem } from '../components/PressableListItem'
@@ -29,6 +28,7 @@ const Browse = () => {
             })
             .catch((error) => {
                 console.log(error)
+                Alert.alert('Woops!', 'Something went wrong while fetching the recipes.')
             })
     }
 
@@ -46,6 +46,7 @@ const Browse = () => {
             })
             .catch((error) => {
                 console.log(error)
+                Alert.alert('Woops!', 'Something went wrong while fetching your recipes.')
             })
     }
 

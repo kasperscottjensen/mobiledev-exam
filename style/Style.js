@@ -265,7 +265,37 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginHorizontal: 2.5,
         borderRadius: 10
+    },
+    editImageWrapper: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    editImage: {
+        height: '90%',
+        width: '90%',
+        resizeMode: 'contain'
+    },
+    editTextWrapper: {
+        flex: 1.4,
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '90%',
+        alignSelf: 'center'
+    },
+    editTitle: {
+        color: '#ff6347',
+        fontSize: 30,
+        fontWeight: 'bold',
+        paddingBottom: 20
+    },
+    editButtonWrapper: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingVertical: 10,
+        flexDirection: 'row'
     }
+
 
 })
 

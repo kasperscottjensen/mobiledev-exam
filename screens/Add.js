@@ -2,7 +2,6 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { TextInput, View, TouchableOpacity, Text, Keyboard, Image, Alert } from 'react-native'
 import { useState } from 'react'
 import * as ImagePicker from 'expo-image-picker'
-
 import { TouchableIcon } from '../components/TouchableIcon'
 import { styles } from '../style/Style'
 import { firebase } from '../util/firebase.config'
@@ -82,12 +81,10 @@ const Add = () => {
                     })
 			})
 			.catch((error) => {
-				console.log(error)
+                console.log(error)
+				Alert.alert('Woops!', 'Something went wrong.')
 			})
-		Alert.alert(
-			'Success!',
-			'Your recipe has been successfully uploaded.'
-		)
+		Alert.alert('Success!', 'Your recipe has been successfully uploaded.')
 		handleCancelPress()
     }
 
